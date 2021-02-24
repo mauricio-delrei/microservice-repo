@@ -1,12 +1,14 @@
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    password: root
-    url: jdbc:mysql://localhost:3306/fornecedor
-    username: root
+    driverClassName: org.h2.Driver
+    password: ''
+    url: jdbc:h2:mem:fornecedor
+    username: sa
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
   jpa:
-    database-platform: org.hibernate.dialect.MySQL5Dialect
-    generate-ddl: true
+    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
-
