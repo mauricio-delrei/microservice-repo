@@ -1,8 +1,18 @@
-spring:  
+spring:
   datasource:
-    password: root
-    username: root
+    driver-class-name: com.mysql.jdbc.Driver
+    testWhileIdle: true
     url: jdbc:mysql://localhost:3306/fornecedor
+    username: root
+    validationQuery: SELECT 1
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyHbmImpl
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    show-sql: true
+
